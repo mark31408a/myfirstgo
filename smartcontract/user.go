@@ -19,7 +19,7 @@ func (s *SmartContract)CreateUser(ctx contractapi.TransactionContextInterface, i
 		Description:input.Description,
 	}
 	newuserJSON, err := json.Marshal(newuser)
-    if err != nil {gi
+    if err != nil {
       return nil,err
     }
 	ctx.GetStub().PutState("4",newuserJSON)
