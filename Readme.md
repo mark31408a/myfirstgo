@@ -22,16 +22,16 @@ go run main.go
 >the go packages will be installed inside a vendor folder, thus, we can deploy to the ledger.
 ---
 ## deploy chaincode to test network
->download fabric sample from https://github.com/hyperledger/fabric-samples and 
+>download fabric sample from https://github.com/hyperledger/fabric-samples and go through the tutorial in https://hyperledger-fabric.readthedocs.io/en/release-2.2/tutorials.html
 
->go through the tutorial in https://hyperledger-fabric.readthedocs.io/en/release-2.2/tutorials.html
-
+>>>The content below is a brief copy of https://hyperledger-fabric.readthedocs.io/en/release-2.2/deploy_chaincode.html
 #### Bring up the test network
 go inside the fabric sample repository
 ```shell
 cd test-network 
-./network up createChannel -c mychannel -ca
+./network.sh up createChannel -ca
 ``` 
+
 #### Package chaincode
 ```shell
 export PATH=${PWD}/../bin:$PATH
@@ -42,10 +42,10 @@ replace {PATH_OF_YOUR_CHAINCODE} with the relative path from "fabric-sample/test
 
 the whole package will pack into basic.tar.gz inside "fabric-sample/test-network" 
 
-we are using basic1.0 as the name of chaincode, take it easy to try another name.
+we are using basic as the name of chaincode, take it easy to try another name.
 
 #### Install the chaincode package
->>>The content below is a brief copy of https://hyperledger-fabric.readthedocs.io/en/release-2.2/deploy_chaincode.html
+
 
 ##### set to org1
 ```shell
@@ -79,7 +79,7 @@ Installed chaincodes on peer:
 Package ID: basic_1.0:69de748301770f6ef64b42aa6bb6cb291df20aa39542c3ef94008615704007f3, Label: basic_1.0
 ```
 !!!IMPORTANT!!! 
-copy and paste the id you see in you terminal in the following command
+copy and paste the id you see in you terminal to the following command
 ```shell
 export CC_PACKAGE_ID=basic_1.0:69de748301770f6ef64b42aa6bb6cb291df20aa39542c3ef94008615704007f3
 ```
